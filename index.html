@@ -72,16 +72,56 @@
             padding-left: 0;
         }
         li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         li i {
-            display: block;
             color: #555;
-            margin-bottom: 5px;
         }
         li a {
             font-weight: bold;
             color: #2c3e50;
+            text-decoration: none;
+        }
+        li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Abstract Toggle Styling */
+        .paper-links {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+        .paper-links a, .abstract-btn {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        .abstract-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: inherit;
+            font-size: inherit;
+        }
+        .paper-links a:hover, .abstract-btn:hover {
+            text-decoration: underline;
+        }
+        .abstract-content {
+            display: none;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: #f9f9f9;
+            border-left: 2px solid #3498db;
+            padding: 12px 16px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .abstract-content.active {
+            display: block;
         }
     </style>
 </head>
@@ -90,58 +130,90 @@
         <div class="sidebar">
             <img src="assets/vedshastry.jpg" alt="Vedarshi Shastry">
             <h1>Vedarshi Shastry</h1>
-            <p>PhD Student in Economics</p>
             <p>UC Santa Cruz</p>
             <p><a href="mailto:veshastr@ucsc.edu">veshastr@ucsc.edu</a></p>
-            <p><a href="./docs/VS_cv.pdf" target="_blank">View CV</a></p>
+            <p><a href="./docs/cv.pdf" target="_blank">View CV</a></p>
         </div>
         <div class="main-content">
             <h2>About Me</h2>
             <p>
                 I am a Ph.D. student in Economics at the University of California, Santa Cruz (UCSC).
-                My research studies agricultural transformation, climate change and economic development.
-                I am currently interested in the impacts of rising temperatures and the role of connectivity in the rural economy.
+                My research interests are in economic history and development economics -- particularly in long-term climate shifts, adaptation and structural transformation.
             </p>
 
             <p>
-                I have previously contributed to research with the World Bank's Development Impact Group (DIME/DECDI).
-                Prior to that, I assisted projects in economics and public policy at the Indian School of Business (ISB).
+                Prior to grad school, I contributed to several projects in academic research and public policy at the World Bank (DIME/DECDI) and Indian School of Business (ISB).
             </p>
-             <p>
-                 Beyond academia, I am enthusiastic about computers and technology.
-                 I enjoy playing chess, table tennis tournaments, the guitar, singing and occasionally songwriting.
-                 I also maintain a few repos and tools that I find useful to my workflow <a href="https://www.github.com/vedshastry"> on Github</a>.
-             </p>
-
-            <!-- <h2>Working Papers</h2>
-            <ul>
-                <li>
-                    <i>"Night and Day: Temperature and Structural Transformation in India"</i>
-                    <a href="./docs/Temperature_ST.pdf">Working Paper</a>
-                </li>
-            </ul> -->
+            <p>
+                I'm enthusiastic about technology, travelling, playing music, chess, learning languages and cooking a meal every Sunday.
+                I also maintain some forks of open-source software that I find useful
+                <a href="https://www.github.com/vedshastry" target="_blank">on GitHub</a>.
+            </p>
 
             <h2>Work in Progress</h2>
             <ul>
-                 <li>
-                    <i>"Night and Day: Temperature and Structural Transformation in India"</i>
-                    <i>"Broadband Connectivity and Rural Development in India"</i>
+                <li>
+                    <div><strong>Night and Day: Temperature and Structural Transformation in India</strong></div>
+                    <div class="paper-links">
+                        <button class="abstract-btn">[Abstract]</button>
+                        (Draft available on request)
+                        <!-- <a href="./docs/Temperature_ST.pdf">[Draft coming soon]</a> -->
+                    </div>
+                    <div class="abstract-content">
+                    Do rising temperatures accelerate or arrest structural transformation?
+                    Using data from the Indian Census (1981-2011), I find a heterogeneous mechanism between persistent daytime vs nighttime heat on agricultural land and labor.
+                    Over 10 years, rising nighttime dew points Δ(Twmin) improve yields and lower prices of grains, while higher daytime wet-bulb temperatures (ΔTwmax) damage cultivable land and depress agricultural wages.
+                    Higher ΔTwmin shifts the labor composition from seasonal to full-time agriculture, while ΔTwmax reallocates distressed agricultural labor into informal urban services.
+                    Over 30 years, warming nights fuel nonagricultural demand, while peak daytimes arrest structural transformation.
+                    </div>
+                </li>
+                <li>
+                    <div><strong>Climate Change, Connectivity and Agricultural Markets in India</strong></div>
+                    <!-- <div class="paper-links">
+                        <button class="abstract-btn">[Abstract]</button>
+                    </div>
+                    <div class="abstract-content">
+                        This project evaluates the expansion of high-speed broadband infrastructure across rural districts in India. Utilizing granular tower coverage data, I study how lowering spatial informational friction changes price dispersion, trade flows, and market integration for primary agricultural commodities.
+                    </div> -->
                 </li>
             </ul>
 
-            <!-- <h2>Reports</h2>
+            <h2>Policy Reports</h2>
             <ul>
                 <li>
-                    <a href="https://docs.wfp.org/api/documents/WFP-0000161805/download/">
-                    <i>"Pilot Impact Evaluation of the Commodity Voucher Procurement Model in Burundi"</i>
-                    </a>
-                    <i>Rome: World Food Programme.</i>
-                    (with Atekou, A., Heirman, J., Jeong, D., Khincha, R., La, P.M, Lombardini, S., Uckat, H.).
+                    <div>
+                        <a href="https://docs.wfp.org/api/documents/WFP-0000161805/download/" target="_blank">
+                        <i>"Pilot Impact Evaluation of the Commodity Voucher Procurement Model in Burundi"</i>
+                        </a>
+                    </div>
+                    <i>Rome: World Food Programme (2024).</i>
+                    <small style="display:block; color:#666;">(with Atekou, A., Heirman, J., Jeong, D., Khincha, R., La, P.M, Lombardini, S., Uckat, H.)</small>
+                    <!-- <div class="paper-links" style="margin-top: 6px;">
+                        <button class="abstract-btn">[Abstract]</button>
+                    </div> -->
+                    <!-- <div class="abstract-content">
+                        This report details the findings from a localized pilot impact evaluation testing the transition from direct food distribution to a structured commodity voucher procurement model within high-vulnerability regions of Burundi.
+                    </div> -->
                 </li>
-            </ul> -->
-
+            </ul>
         </div>
     </div>
+
+    <script>
+        document.body.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('abstract-btn')) {
+                // Find the abstract content box within the same list item
+                const parentLi = e.target.closest('li');
+                const abstract = parentLi.querySelector('.abstract-content');
+
+                if (abstract) {
+                    abstract.classList.toggle('active');
+                    // Optional: change text or weight when active
+                    e.target.textContent = abstract.classList.contains('active') ? '[Hide Abstract]' : '[Abstract]';
+                }
+            }
+        });
+    </script>
     <!-- Robots disclaimer: please adhere to this webpage's robots.txt. Thank you. -->
 </body>
 </html>
