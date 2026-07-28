@@ -17,6 +17,7 @@
             display: flex;
             max-width: 1000px;
             margin: 40px auto;
+            padding: 0 24px;
             border-radius: 8px;
         }
         .sidebar {
@@ -122,6 +123,51 @@
         }
         .abstract-content.active {
             display: block;
+        }
+
+        /* Long URLs / titles must never force the page to scroll sideways */
+        a, strong {
+            overflow-wrap: break-word;
+        }
+
+        /* Mobile / narrow viewports: stack the sidebar above the content */
+        @media (max-width: 700px) {
+            body {
+                line-height: 1.7;
+            }
+            .container {
+                display: block;
+                margin: 24px auto;
+                padding: 0 18px;
+            }
+            .sidebar {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 20px;
+                margin-bottom: 28px;
+            }
+            .sidebar img {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 14px;
+            }
+            .main-content {
+                padding-left: 0;
+            }
+            /* Justified text looks ragged in a narrow column */
+            .abstract-content {
+                text-align: left;
+            }
+            /* Comfortable tap targets for the abstract/paper links */
+            .paper-links {
+                font-size: 15px;
+                line-height: 2.2;
+            }
+            .paper-links a, .abstract-btn {
+                display: inline-block;
+                margin-right: 14px;
+            }
         }
     </style>
 </head>
