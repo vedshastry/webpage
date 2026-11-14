@@ -87,6 +87,46 @@
             text-decoration: underline;
         }
 
+        /* Tabs */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 16px;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 28px;
+        }
+        .tabs a {
+            color: #555;
+            text-decoration: none;
+            padding: 4px 0 8px;
+            margin-bottom: -1px;
+            border-bottom: 2px solid transparent;
+        }
+        .tabs a:hover {
+            color: #2c3e50;
+        }
+        .tabs a.active {
+            color: #2c3e50;
+            font-weight: bold;
+            border-bottom-color: #3498db;
+        }
+        /* Without JS every section stays visible, stacked */
+        .js .tab-panel {
+            display: none;
+        }
+        .js .tab-panel.active {
+            display: block;
+        }
+        .tab-panel h2:not(:first-child) {
+            margin-top: 36px;
+        }
+        .course-meta {
+            font-size: 15px;
+            color: #555;
+        }
+
         /* Abstract Toggle Styling */
         .paper-links {
             font-family: 'Helvetica Neue', sans-serif;
@@ -155,6 +195,10 @@
             .main-content {
                 padding-left: 0;
             }
+            .tabs {
+                gap: 22px;
+                justify-content: center;
+            }
             /* Justified text looks ragged in a narrow column */
             .abstract-content {
                 text-align: left;
@@ -181,14 +225,22 @@
             <p><a href="./docs/cv.pdf" target="_blank">View CV</a></p>
         </div>
         <div class="main-content">
-            <h2>About Me</h2>
+            <nav class="tabs">
+                <a href="#about" data-tab="about">About Me</a>
+                <a href="#research" data-tab="research">Research</a>
+                <a href="#teaching" data-tab="teaching">Teaching</a>
+                <a href="#repositories" data-tab="repositories">Repositories</a>
+            </nav>
+
+            <section class="tab-panel" data-panel="about">
+            <h2>About</h2>
             <p>
             I am a Ph.D. student in Economics at the University of California, Santa Cruz (UCSC),
-            with research interests in environmental, development, and applied microeconomics.
+            with research interests in environmental, development and applied microeconomics.
             <br>
             As an economist, my goal is to enhance our understanding
-            of the long-run impacts of climate and 
-            technological change in developing economies.
+            of how long-term climate and technological change impact
+            economic activity in the developing world.
             </p>
 
             <p>
@@ -199,22 +251,24 @@
             temperatures) on agricultural labour in India.
             I am also interested in how the growing demand for 
             digital infrastructure interacts with natural resources 
-            and food--water--energy systems.
+            and food–water–energy systems in developing economies.
             </p>
 
             <p>
-            Prior to---and during---grad school, I have provided research 
+            Prior to (and during) grad school, I have provided research 
             consulting/assistance on several projects in economics and 
-            public policy, spanning: 
+            public policy, spanning 
             data centers in the U.S. (with Amazon), home-grown school meals in Burundi 
             (with the World Bank), and irrigation, rural roads & agricultural markets in India
             (with the Indian School of Business).
             </p>
+
+            <h2>Beyond academia</h2>
             <p>
-            Beyond academic research, I have always been enthusiastic 
-            about technology (and <s>breaking</s> tinkering with 
+             I have always been enthusiastic about: 
+             technology (and <s>breaking</s> tinkering with 
             my devices), chess & table tennis, playing the guitar & 
-            singing, and traveling the world---especially meeting
+            singing, and traveling the world—especially meeting
             new people and (old) nature reserves.
             </p>
             <p>
@@ -222,17 +276,13 @@
             town, watching the waves at Twin Lakes beach, catching
             sunsets, and cooking a comfort meal every Sunday.
             </p>
+            </section>
 
-            <p>
-            The website is a work-in-progress, much like other open-source 
-            software that I maintain over at
-            <a href="https://www.github.com/vedshastry" target="_blank">github/vedshastry</a>
-            </p>
-
+            <section class="tab-panel" data-panel="research">
             <h2>Working Papers</h2>
             <ul>
                 <li>
-                    <div><strong>Night and Day: Diurnal Warming and Structural Change</strong></div>
+                    <div><strong>Night and Day: Diurnal Warming and Long-run Structural Transformation in India</strong></div>
                     <div class="paper-links">
                         <button class="abstract-btn">[Abstract]</button>
                         <br>
@@ -267,12 +317,131 @@
                     </div> -->
                 </li>
             </ul>
+            </section>
 
+            <section class="tab-panel" data-panel="teaching">
+            <p>
+            The (in)famous quip goes <i>"those who can, do; those who can't, teach".</i>
+            <br>
+            I beg to differ: one cannot "teach" something without knowing how to "do" it. 
+            </p>
+            <p>
+            I have been fortunate to have found a kind and inspirational
+            teacher at all stages in my life, and try my best to pass it on. 
+            It is my privilege to have taught (and continue teaching) 
+            mathematics and economics from grade school through the undergraduate, 
+            MBA and Ph.D. levels.
+            </p>
+            <p>
+            My primary goal as a teacher is to raise the floor of understanding
+            in the classroom. I believe this aspect can often be overlooked 
+            in the quantitative world, which tends to prioritize the ceiling.
+            
+            </p>
+            <h2>Teaching Assistance</h2>
+            <ul>
+                <!-- Newest first. Copy an <li> block to add a course;
+                     drop the paper-links div if there are no evaluations yet. -->
+                <li>
+                    <div><strong>ECON 1(01): Introductory Microeconomics</strong></div>
+                    <div class="course-meta">UC Santa Cruz | Undergraduate </div>
+                    <div class="paper-links">
+                      <b>Evaluations: </b>
+                        <a href="./docs/ta-evals/Winter26_ECON101_IntroMicro_Evals_VedShastry.pdf" target="_blank">[Winter 2026]</a>
+                    </div>
+                </li>
+                <li>
+                    <div><strong>ECON 100A: Intermediate Microeconomics</strong></div>
+                    <div class="course-meta">UC Santa Cruz | Undergraduate </div>
+                    <div class="paper-links">
+                      <b>Evaluations: </b>
+                        <a href="./docs/ta-evals/Fall25_ECON100A_IntermediateMicro_Evals_VedShastry.pdf" target="_blank">[Fall 2025]</a>
+                    </div>
+                </li>
+                <li>
+                    <div><strong>ECON 210B: Mathematical Methods for Economic Analysis (Math Camp) </strong></div>
+                    <div class="course-meta">UC Santa Cruz | Ph.D. | Summer 2026</div>
+                </li>
+                <li>
+                    <div><strong>The Business of Food</strong></div>
+                    <div class="course-meta">Indian School of Business | PGP (MBA) | Term 8, 2022</div>
+                </li>
+            </ul>
+            </section>
+
+            <section class="tab-panel" data-panel="repositories">
+            <p>
+            I maintain some personal projects over at
+            <a href="https://www.github.com/vedshastry" target="_blank">github/vedshastry</a>
+            </p>
+            <h2>Research Software</h2>
+            <ul>
+                <li>
+                    <div><a href="https://github.com/vedshastry/xstata-nvim" target="_blank">xstata-nvim</a></div>
+                    <div class="course-meta">Lua plugin for running selected lines (or an entire do-file) between Neovim and Stata on X.</div>
+                </li>
+                <li>
+                    <div><a href="https://github.com/vedshastry/india-bridge" target="_blank">india-bridge</a></div>
+                    <div class="course-meta">Stata package standardizing Indian district names with Census identifiers (1951&ndash;2011).</div>
+                </li>
+                <li>
+                    <div><a href="https://github.com/vedshastry/stata-ado-personal" target="_blank">stata-ado-personal</a></div>
+                    <div class="course-meta">Personal library of utilities and wrapper scripts for common Stata tasks.</div>
+                </li>
+            </ul>
+
+            <h2>Systems &amp; Configuration</h2>
+            <p>
+            If you are a researcher, I recommend trying nix and the suckless
+            approach to computing. The time spent upfront pays off within a
+            year: no more "what happened to my results?" when numbers stop
+            reproducing because a Python package updated its dependencies.
+            </p>
+            <ul>
+                <li>
+                    <div><a href="https://github.com/vedshastry/nixos" target="_blank">nixos</a></div>
+                    <div class="course-meta">Fully declarative NixOS environment running suckless programs: dwm, dmenu, slstatus, st.</div>
+                </li>
+                <li>
+                    <div><a href="https://github.com/vedshastry/dwm" target="_blank">dwm</a></div>
+                    <div class="course-meta">My build of the dwm window manager.</div>
+                </li>
+                <li>
+                    <div><a href="https://github.com/vedshastry/dmenu" target="_blank">dmenu</a></div>
+                    <div class="course-meta">My build of the dmenu launcher.</div>
+                </li>
+                <li>
+                    <div><a href="https://github.com/vedshastry/st" target="_blank">st</a></div>
+                    <div class="course-meta">My build of the st terminal, based on Luke Smith's.</div>
+                </li>
+                <li>
+                    <div><a href="https://github.com/vedshastry/slstatus" target="_blank">slstatus</a></div>
+                    <div class="course-meta">My slstatus configuration, based on rnsavinelli's build.</div>
+                </li>
+                <li>
+                    <div><a href="https://github.com/vedshastry/dotfiles" target="_blank">dotfiles</a></div>
+                    <div class="course-meta">My dotfiles.</div>
+                </li>
+            </ul>
+            </section>
 
         </div>
     </div>
 
     <script>
+        // Tabs: the URL hash (#about, #research, #teaching, #repositories) picks the visible section
+        document.documentElement.classList.add('js');
+        function showTab() {
+            const links = document.querySelectorAll('.tabs a');
+            let name = location.hash.slice(1);
+            if (![...links].some(a => a.dataset.tab === name)) name = 'about';
+            links.forEach(a => a.classList.toggle('active', a.dataset.tab === name));
+            document.querySelectorAll('.tab-panel').forEach(p =>
+                p.classList.toggle('active', p.dataset.panel === name));
+        }
+        window.addEventListener('hashchange', showTab);
+        showTab();
+
         document.body.addEventListener('click', function(e) {
             if (e.target && e.target.classList.contains('abstract-btn')) {
                 // Find the abstract content box within the same list item
